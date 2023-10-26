@@ -75,7 +75,6 @@ AddEventHandler('onResourceStop', function(resource)
 end)
 
 RegisterNetEvent('qb-registration:client:MainMenu', function()
-    print('Menu triggered')
     exports['qb-menu']:openMenu({
         {
             header = 'Vehicle Registration Menu',
@@ -150,49 +149,3 @@ end)
 RegisterNetEvent('qb-registration:client:registerVehicle', function(data)
     TriggerServerEvent('qb-registration:server:registerVehicle', data)
 end)
-
--- RegisterNetEvent('qb-registration:client:checkPlateMenu', function()
---     local dialog = exports['qb-input']:ShowInput({
---         header = "Vehicle Registration Search",
---         submitText = "Search",
---         inputs = {
---             {
---                 text = "Search Type", -- text you want to be displayed as a input header
---                 name = "searchtype", -- name of the input should be unique otherwise it might override
---                 type = "radio", -- type of the input - Radio is useful for "or" options e.g; billtype = Cash OR Bill OR bank
---                 options = { -- The options (in this case for a radio) you want displayed, more than 6 is not recommended
---                     --{ value = "citizenid", text = "Citizen ID" }, -- Options MUST include a value and a text option
---                     { value = "plate", text = "Vehicle Plate" }  -- Options MUST include a value and a text option
---                 },
---                 -- default = "cash", -- Default radio option, must match a value from above, this is optional
---             },
---             {
---                 text = "Search terms", -- text you want to be displayed as a place holder
---                 name = "searchterms", -- name of the input should be unique otherwise it might override
---                 type = "text", -- type of the input
---                 isRequired = true, -- Optional [accepted values: true | false] but will submit the form if no value is inputted
---                 -- default = "CID-1234", -- Default text option, this is optional
---             },
---         },
---     })
-
---     if dialog ~= nil then
---         for k,v in pairs(dialog) do
---             print(k .. " : " .. v)
---         end
---     end
-
---     if dialog.searchtype =='plate' then
---         local plate = dialog.searchterms
---         print(type(plate))
---         QBCore.Functions.TriggerCallback('qb-registration:server:searchPlate', function(result)
---             if result[1] then
---                 print(result[1].vehicle)
---             else
---                 print('No results found')
---             end
---         end, plate)
---     else
---         print('Error - No search type detected')
---     end
--- end, false)

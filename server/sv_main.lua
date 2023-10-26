@@ -34,23 +34,11 @@ QBCore.Functions.CreateCallback('qb-registration:server:getOwnedVehicles', funct
     end
 end)
 
--- QBCore.Functions.CreateCallback('qb-registration:server:searchPlate', function(source, cb, plate)
---     --print(source)
---     print("Received string on the server: " .. plate)
---     local vehicles = MySQL.query.await("SELECT pv.id, pv.citizenid, pv.plate, pv.vehicle, pv.mods, pv.state, p.charinfo FROM `player_vehicles` pv LEFT JOIN players p ON pv.citizenid = p.citizenid WHERE LOWER(`plate`) LIKE :query OR LOWER(`vehicle`) LIKE :query LIMIT 25", {
---         query = string.lower('%'..plate..'%')})
-
---     if not vehicles[1] then
---         --cb('No vehicles found')
---         TriggerClientEvent('QBCore:Notify', source, "No vehicle registration details found", 'error')
---         cb('ERROR: No vehicle registration details found')
---     return end
-
---     return cb(vehicles)
--- end)
-
 RegisterNetEvent('qb-registration:server:registerVehicle', function(data)
-    print('ID: '..source..' just paid $'..data.fee..' for '..data.days..' days registration on their '..data.vehicle..' [Plate: '..data.plate..']')
+    local Player = QBCore.Functions.GetPlayer(source)
+    if not Player then return end
+    Player.Functions.RemoveMoney('bank', data.fee)
+    TriggerClientEvent('QBCore:Notify', source, 'You just paid $ '..data.fee.. ' for '..data.days..' days registration on your '..data.vehicle..' [Plate: '..data.plate..']')
     local timestamp = os.time()
     local regExpiry = timestamp + data.days * 86400
     local result = MySQL.query.await('SELECT plate FROM player_vehicles WHERE plate = ?', {data.plate})
@@ -59,15 +47,3 @@ RegisterNetEvent('qb-registration:server:registerVehicle', function(data)
     end
 
 end)
-
---Commands
-
--- QBCore.Commands.Add('checkplate', 'Check vehicle registration details (Law enforcement only)', {}, false, function(source)
---     local src = source
--- 	local Player = QBCore.Functions.GetPlayer(src)
--- 	if Player.PlayerData.job.name == "police" or Player.PlayerData.job.type == "leo" then
--- 		TriggerClientEvent("qb-registration:client:checkPlateMenu", src)
--- 	else
--- 		TriggerClientEvent('QBCore:Notify', src, 'Only Police or Law Enforcement can check plates', "error")
--- 	end
--- end)
