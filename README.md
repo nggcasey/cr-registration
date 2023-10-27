@@ -7,8 +7,13 @@ Vehicle Registration for QB-Core Framework by Casey Reed
 
 ## Features
 - Allows players to pay registration on their vehicles
+- Players can check the registration on all of their vehicles
 - Configurable registration periods
 - Can be integrated into various MDT resources (i.e. ps-mdt - Guide for this WIP)
+
+## Planned features
+
+- Players to get a registration document on registering their vehicle
 
 ## Installation
 -Drag and drop resource into your server files, make sure to remove -main in the folder name
