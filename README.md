@@ -20,9 +20,9 @@ Vehicle Registration for QB-Core Framework by Casey Reed
 -Run the attached SQL script (qb-registration.sql)
 
 ## Screenshots
-https://imgur.com/JkANrla
-https://imgur.com/Z7XFcRB
-https://imgur.com/86hbfMp
+<img src= "https://imgur.com/JkANrla.png">
+<img src = "https://imgur.com/Z7XFcRB.png">
+<img src = "https://imgur.com/86hbfMp.png">
 
 ## Support
 -I don't generally provide support as I'm too busy, but feel free to use this code, raise issues or submit pull requests etc.
