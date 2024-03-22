@@ -4,6 +4,7 @@ Vehicle Registration for QB-Core Framework by Casey Reed
 ## Dependencies
 - [qb-core](https://github.com/qbcore-framework/qb-core)
 - [qb-target](https://github.com/BerkieBb/qb-target) - For Interaction
+- [oxmysql](https://github.com/overextended/oxmysql) - Note: Comes standard with QBCore Framework
 
 ## Features
 - Allows players to pay registration on their vehicles
