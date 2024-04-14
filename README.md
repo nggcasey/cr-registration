@@ -33,11 +33,12 @@ Screenshots:
 
 <img src = "https://imgur.com/a/9qGzK6Y.png">
 <img src = "https://imgur.com/iMFozBA.png">
-<img src = "https://imgur.com/ZgX2jyO.png'>
+<img src = "https://imgur.com/ZgX2jyO.png">
 
 * Under /server/main.lua
 
 Under this:
+
 ```lua
 if Config.UseWolfknightRadar == true then
 	RegisterNetEvent("wk:onPlateScanned")
