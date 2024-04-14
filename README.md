@@ -27,6 +27,8 @@ Vehicle Registration for QB-Core Framework by Casey Reed
 
 ## PS-MDT Integration
 
+https://github.com/Project-Sloth/ps-mdt
+
 Below are instructions for integrating this into ps-mdt - Follow them carefully
 
 Screenshots:
@@ -93,6 +95,17 @@ ADD THIS CODE:
 				registration = false
 			end
 		end
+```
+REPLACE THIS CODE:
+```lua
+		if bolo or warrant or (Config.PlateScanForDriversLicense and not driversLicense) and vehicleOwner then
+			TriggerClientEvent("wk:togglePlateLock", src, cam, true, 1)
+		end
+```
+WITH THIS CODE:
+```lua
+		if bolo or warrant or (Config.PlateScanForDriversLicense and not driversLicense) or not registration and vehicleOwner then
+			TriggerClientEvent("wk:togglePlateLock", src, cam, true, 1)
 ```
 Under ```QBCore.Functions.CreateCallback('mdt:server:SearchVehicles', function(source, cb```
 REPLACE THIS:
