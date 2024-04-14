@@ -193,9 +193,18 @@ WITH THIS:
 <div class="dmv-id">Plate: ${value.plate} · Owner: ${value.owner} | Reg Expiry: ${value.registration} </div>
 ```
 
-Under ```else if (eventData.type == "getVehicleData") ```
-UNDERNEATH THIS LINE: ```$(".vehicle-info-plate-input").val(table["plate"]);```
-ADD THIS LINE ```$(".vehicle-info-registration-input").val(table["registration"]);```
+Under 
+```js
+else if (eventData.type == "getVehicleData")
+```
+UNDERNEATH THIS LINE: 
+```js
+$(".vehicle-info-plate-input").val(table["plate"]);
+```
+ADD THIS LINE 
+```js
+$(".vehicle-info-registration-input").val(table["registration"]);
+```
 
 
 * Under ui/dashboard.html
