@@ -8,7 +8,7 @@ local function formatUnixTimestamp(timestamp)
     end
 end
 
-QBCore.Functions.CreateCallback('qb-registration:server:getOwnedVehicles', function(source, cb)
+QBCore.Functions.CreateCallback('cr-registration:server:getOwnedVehicles', function(source, cb)
     local pData = QBCore.Functions.GetPlayer(source)
     print(citizenid)
     if pData then
@@ -34,7 +34,7 @@ QBCore.Functions.CreateCallback('qb-registration:server:getOwnedVehicles', funct
     end
 end)
 
-RegisterNetEvent('qb-registration:server:registerVehicle', function(data)
+RegisterNetEvent('cr-registration:server:registerVehicle', function(data)
     local Player = QBCore.Functions.GetPlayer(source)
     if not Player then return end
     Player.Functions.RemoveMoney('bank', data.fee)

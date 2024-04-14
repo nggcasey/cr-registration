@@ -24,7 +24,7 @@ local function spawnPeds()
                 options = {
                     {
                         type = 'client',
-                        event = 'qb-registration:client:MainMenu',
+                        event = 'cr-registration:client:MainMenu',
                         label = 'Register Vehicle',
                         icon = 'fa-solid fa-car',
                     }
@@ -74,7 +74,7 @@ AddEventHandler('onResourceStop', function(resource)
     deletePeds()
 end)
 
-RegisterNetEvent('qb-registration:client:MainMenu', function()
+RegisterNetEvent('cr-registration:client:MainMenu', function()
     exports['qb-menu']:openMenu({
         {
             header = 'Vehicle Registration Menu',
@@ -86,7 +86,7 @@ RegisterNetEvent('qb-registration:client:MainMenu', function()
             txt = 'See a list of vehicles you own',
             icon = 'fa-solid fa-car',
             params = {
-                event  = 'qb-registration:client:vehicleSubMenu',
+                event  = 'cr-registration:client:vehicleSubMenu',
             }
         }
     }
@@ -94,8 +94,8 @@ RegisterNetEvent('qb-registration:client:MainMenu', function()
     )
 end)
 
-RegisterNetEvent('qb-registration:client:vehicleSubMenu', function()
-    QBCore.Functions.TriggerCallback('qb-registration:server:getOwnedVehicles', function(result)
+RegisterNetEvent('cr-registration:client:vehicleSubMenu', function()
+    QBCore.Functions.TriggerCallback('cr-registration:server:getOwnedVehicles', function(result)
         local ownedVehicles = {}
         ownedVehicles[#ownedVehicles+1] = {
             isMenuHeader = true,
@@ -109,7 +109,7 @@ RegisterNetEvent('qb-registration:client:vehicleSubMenu', function()
                 header = tostring(k..' - '..v.vehicle..' [Plate: '..v.plate..']'),
                 txt = regExpiry,
                 params = {
-                    event = 'qb-registration:client:registrationSubMenu',
+                    event = 'cr-registration:client:registrationSubMenu',
                     args = {
                         vehicle = v.vehicle,
                         plate = v.plate
@@ -121,7 +121,7 @@ RegisterNetEvent('qb-registration:client:vehicleSubMenu', function()
     end)
 end)
 
-RegisterNetEvent('qb-registration:client:registrationSubMenu', function(data)
+RegisterNetEvent('cr-registration:client:registrationSubMenu', function(data)
     local feeMenu = {}
     feeMenu[#feeMenu+1] = {
         isMenuHeader = true,
@@ -133,7 +133,7 @@ RegisterNetEvent('qb-registration:client:registrationSubMenu', function(data)
             header = tostring(v.days..' days - $'..v.fee),
             txt = 'Register your vehicle for '..v.days..' days',
             params = {
-                event = 'qb-registration:client:registerVehicle',
+                event = 'cr-registration:client:registerVehicle',
                 args = {
                     days = v.days,
                     fee = v.fee,
@@ -146,6 +146,6 @@ RegisterNetEvent('qb-registration:client:registrationSubMenu', function(data)
     exports['qb-menu']:openMenu(feeMenu)
 end)
 
-RegisterNetEvent('qb-registration:client:registerVehicle', function(data)
-    TriggerServerEvent('qb-registration:server:registerVehicle', data)
+RegisterNetEvent('cr-registration:client:registerVehicle', function(data)
+    TriggerServerEvent('cr-registration:server:registerVehicle', data)
 end)

@@ -1,4 +1,4 @@
-# qb-registration
+# cr-registration
 Vehicle Registration for QB-Core Framework by Casey Reed
 
 ## Dependencies
@@ -18,7 +18,7 @@ Vehicle Registration for QB-Core Framework by Casey Reed
 
 ## Installation
 -Drag and drop resource into your server files, make sure to remove -main in the folder name
--Run the attached SQL script (qb-registration.sql)
+-Run the attached SQL script (cr-registration.sql)
 
 ## Screenshots
 <img src= "https://imgur.com/JkANrla.png">
