@@ -194,8 +194,9 @@ WITH THIS:
 ```
 
 Under ```else if (eventData.type == "getVehicleData") ```
-ADD THIS ```$(".vehicle-info-registration-input").val(table["registration"]);```
-underneath ````$(".vehicle-info-plate-input").val(table["plate"]);```
+UNDERNEATH THIS LINE: ```$(".vehicle-info-plate-input").val(table["plate"]);```
+ADD THIS LINE ```$(".vehicle-info-registration-input").val(table["registration"]);```
+
 
 * Under ui/dashboard.html
 
