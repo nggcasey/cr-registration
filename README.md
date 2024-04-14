@@ -106,6 +106,7 @@ WITH THIS CODE:
 ```lua
 		if bolo or warrant or (Config.PlateScanForDriversLicense and not driversLicense) or not registration and vehicleOwner then
 			TriggerClientEvent("wk:togglePlateLock", src, cam, true, 1)
+		end
 ```
 Under ```QBCore.Functions.CreateCallback('mdt:server:SearchVehicles', function(source, cb```
 REPLACE THIS:
